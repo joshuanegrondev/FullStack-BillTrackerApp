@@ -1,0 +1,53 @@
+    <!doctype html>
+    <html>
+    <head>
+        <title>Track your debts</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/9519e19407.js" crossorigin="anonymous"></script>
+      </head>
+    <body class="profileBody">
+    <div class="container profileContain">
+        <div>
+            <div >
+                <div >
+                  <h1>Track your debts<h1>
+                    <% if (user.local.email) { %>
+                        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+                        <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                    <% } else { %>
+                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                    <% } %>
+                </div>
+            </div>
+            <div class="ulContain" >
+              <h2>Debt</h2>
+                <ul class="ulBill">
+                <% for(var i=0; i<debt.length; i++) {%>
+                    <li>
+                      <p class="profileP">Company:</p><span class="profileSpan" data-bill="<%= debt[i].company %>"><%= debt[i].company %></span>
+                      <p class="accountN">What you have to pay:</p><span class="accountN" data-bill="<%= debt[i].dbt %>">$<%= debt[i].dbt %></span>
+                      <p class="accountN">Account number</p><span class="accountN" data-bill="account number">account number</span>
+                      <p class="profileP">What you owe:</p><span class="profileSpan" data-bill="<%= debt[i].owe %>">$<%= debt[i].owe %></span>
+                      <p class="profileP">What you've paid off:</p><span class="profileSpan" data-bill="<%= debt[i].amountPaid %>">$<%= debt[i].amountPaid %></span>
+                      <p class="profileP">What you have left to pay off:</p><span class="profileSpan" data-bill="<%= debt[i].sub %>">$<%= debt[i].owe - debt[i].amountPaid %></span>
+                      <button type="button" data-objectId="<%= debt[i]._id %>"class="paid" name="paid"><i class="fas fa-money-check"></i></button>
+                      <input type="text" class="amountPaid"name="amountPaid" >
+                      <button type="button" class="pay"data-objectId="<%= debt[i]._id %>"name="button">Partial Pay</button>
+                    </li>
+                <% } %>
+              </ul>
+
+            <% if (user.local.email) { %>
+              <form action="/person" method="POST">
+                <input type="text" placeholder="Company" name="company">
+                <input type="text" class="money"placeholder="Bill" name="dbt">
+                <button id="submit" type="submit">Add</button>
+              </form>
+            </div>
+            <% } %>
+    </div>
+    <script src="main.js"></script>
+    </body>
+    </html>

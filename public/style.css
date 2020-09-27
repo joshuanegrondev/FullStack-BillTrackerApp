@@ -1,0 +1,53 @@
+*{
+  font-size: 16px;
+  text-align: center;
+}
+.profileBody{
+  background-image: url("img/back.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.accountN{
+  display: none;
+}
+.profileP{
+  display: inline-block;
+  font-weight: 900;
+  font-size: 1.8rem;
+}
+.profileContain{
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  /* border: 3px solid blue; */
+  margin-left: 15%;
+  height: 90vh;
+  margin-top: 25px;
+  background-color: lightBlue;
+  border-radius: 10px;
+}
+.profileSpan{
+  margin-right: 1%;
+  font-size: 1.5rem;
+}
+input, button{
+  padding: 1%;
+}
+i{
+  font-size: 2rem;
+}
+
+.pay{
+  margin-bottom: 50px;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+  /* border: 1px solid red; */
+}
+.ulContain{
+  width: 90%;
+  /* border: 1px solid blue; */
+  margin-left: 5%;
+}

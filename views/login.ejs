@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <title>Track your debts</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="profileBody">
+<div class="profileContain">
+<div >
+
+    <h1><span class="fa fa-sign-in"></span> Login</h1>
+
+    <% if (message.length > 0) { %>
+        <div ><%= message %></div>
+    <% } %>
+
+    <!-- LOGIN FORM -->
+    <form action="/login" method="post">
+        <div >
+            <label>Email</label>
+            <input type="text"  name="email">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password"  name="password">
+        </div>
+
+        <button type="submit" >Login</button>
+    </form>
+
+    <hr>
+
+    <p>Need an account? <a href="/signup">Signup</a></p>
+    <p>Or go <a href="/">home</a>.</p>
+
+
+</div>
+</div>
+</body>
+</html>
